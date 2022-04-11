@@ -24,7 +24,9 @@ pipenv run flask run
 `pytest` arguments :
 
 - `-v` verbose
-- `-s` activates `print()`
+- `-s` enables stdout response (eg: `print()`)
+- `-m` search by marker
+- `-k` search by regex
 - `--collect-only` do not run tests, simply read the files
 
 ```sh
