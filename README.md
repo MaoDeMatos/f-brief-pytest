@@ -1,13 +1,32 @@
-# Pre requis
+# Pytest initiation
 
-python need to be installed on your host
+Studying project about softare automated tests and Continuous Integration.
 
-```
+## Prerequisites
+
+Python 3.10 need to be installed on your host.
+
+```sh
 pip install pipenv
-cd /path/root/site
 pipenv install
 ```
 
-# Command
+## Run
 
-`pipenv run flask run`
+To start the app:
+
+```sh
+pipenv run flask run
+```
+
+## Tests
+
+`pytest` arguments :
+
+- `-v` verbose
+- `-s` activates `print()`
+- `--collect-only` do not run tests, simply read the files
+
+```sh
+pipenv run pytest -s
+```
