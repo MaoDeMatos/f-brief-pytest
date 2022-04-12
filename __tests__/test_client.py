@@ -1,10 +1,5 @@
 from flask import Flask
 import pytest
-import os
-
-# app_url = os.environ["APP_URL"] + ":" + os.environ["APP_PORT"]
-
-# test_app = Flask(__name__)
 
 
 @pytest.mark.get_request

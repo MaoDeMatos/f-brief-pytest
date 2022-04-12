@@ -11,7 +11,7 @@ pip install pipenv
 pipenv install
 ```
 
-## Run
+## Flask app
 
 To start the app:
 
@@ -29,6 +29,8 @@ pipenv run flask run
 - `-k` search by regex
 - `--collect-only` do not run tests, simply read the files
 
+Use this to run tests and generate and HTML report :
+
 ```sh
-pipenv run pytest -s
+pipenv run test -v -s
 ```

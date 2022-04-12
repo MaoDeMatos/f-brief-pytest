@@ -3,9 +3,13 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
+[scripts]
+test = "pytest --html=__tests__/report.html --self-contained-html"
+
 [packages]
 flask = "*"
 pytest = "*"
+pytest-html = "*"
 
 [dev-packages]
 
