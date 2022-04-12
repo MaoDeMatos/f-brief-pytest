@@ -1,7 +1,6 @@
+from flask import Flask
 import pytest
 import os
-
-from app import app
 
 # app_url = os.environ["APP_URL"] + ":" + os.environ["APP_PORT"]
 
@@ -9,6 +8,6 @@ from app import app
 
 
 @pytest.mark.get_request
-def test_flask_is_started():
-    response = app.test_client().get("/")
+def test_flask_is_started(client: Flask):
+    response = client.test_client().get("/")
     assert response.status_code == 200
