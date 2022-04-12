@@ -8,6 +8,6 @@ import os
 
 
 @pytest.mark.get_request
-def test_flask_is_setup(client: Flask):
+def test_flask_exists(client: Flask):
     response = client.test_client().get("/")
     assert response.status_code == 200
