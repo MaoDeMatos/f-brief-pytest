@@ -10,5 +10,5 @@ def hello_world():
 
 @app.route("/other")
 def hello_other():
-    page = request.args.get("page", default=1, type=int)
+    page = request.args.get("page", default = 1, type = int)
     return f"<p>Hello, Other!</p><p>Page : {page}</p>"
