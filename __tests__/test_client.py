@@ -4,7 +4,7 @@ import pytest
 
 @pytest.mark.getRequest
 @pytest.mark.expectSuccess
-@pytest.mark.parametrize("route", ["/", "/other", "/cats"])
+@pytest.mark.parametrize("route", ["/", "/other", "/exp", "/cats"])
 def test_route_exists(client: Flask, route: str):
     response = client.get(route)
     assert response.status_code == 200

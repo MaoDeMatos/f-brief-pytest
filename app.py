@@ -17,7 +17,7 @@ def hello_other():
 
 @app.route("/exp")
 def exp():
-    value = int(request.args.get("value"))
+    value = int(request.args.get("value", default=2, type=int))
     return f"<p>Exposant 2 de {value} : {pow(value, 2)}</p>"
 
 
