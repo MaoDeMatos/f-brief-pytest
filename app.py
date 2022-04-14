@@ -15,6 +15,12 @@ def hello_other():
     return f"<p>Hello, Other!</p><p>Page : {page}</p>"
 
 
+@app.route("/exp")
+def exp():
+    value = int(request.args.get("value"))
+    return f"<p>Exposant 2 de {value} : {pow(value, 2)}</p>"
+
+
 # Route for Mock test
 # Return a JSON object
 @app.route("/cats")
