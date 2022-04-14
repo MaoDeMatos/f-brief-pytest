@@ -28,7 +28,7 @@ jobs:
 
       - name: Install project dependencies
         run: |
-          pipenv install pytest pytest-html pytest-mock
+          pipenv install
 
       - name: Test with pytest
         run: |
