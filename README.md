@@ -54,3 +54,11 @@ Use `pytest` directly if you don't want to generate a report :
 ```sh
 pipenv run pytest
 ```
+
+To run a load test, use `locust` (parameters in [locust.conf](./locust.conf])) :
+
+❗ You must run the app before trying to use Locust
+
+```sh
+pipenv run locust
+```
