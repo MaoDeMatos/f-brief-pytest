@@ -1,4 +1,3 @@
-from http import HTTPStatus
 import json
 import pytest
 from flask import Flask
@@ -55,4 +54,3 @@ def test_get_cats_endpoint_mock(mock_cats, mocker: mocker):
     mocker.patch("/cats", get_mock_data)
 
     assert True
-q
