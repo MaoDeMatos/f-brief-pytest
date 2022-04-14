@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [scripts]
-test = "pytest --html=__tests__/report.html --self-contained-html"
+test = "pytest --html=__tests__/reports/pytest_report.html --self-contained-html"
 
 [packages]
 flask = "*"
