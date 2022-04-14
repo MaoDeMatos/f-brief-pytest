@@ -17,7 +17,7 @@ pip install pipenv
 pipenv install
 ```
 
-Run the container with `docker-compose up -d --build`
+For Docker, run the container with `docker-compose up -d --build`
 
 ## Flask app
 
@@ -41,16 +41,16 @@ To run tests in Docker, simply execute the commands in an interactive shell.
 
 You can find custom markers used in [`pytest.ini`](./pytest.ini).
 
-Use this to run all tests and generate and HTML report (located [here](./__tests__/report.html)) :
+Use this to run all tests and generate and HTML report (located [here](./__tests__/reports/pytest_report.html)) :
 
 ```sh
-pipenv run test -v -s
+pipenv run test
 ```
 
-If you use `--collect-only` with this, you'll generate a blank report.
+❗ If you use `--collect-only` with this, you'll generate a blank report.
 
-Use `pytest` if you don't want to generate a report :
+Use `pytest` directly if you don't want to generate a report :
 
 ```sh
-pipenv run pytest -v -s
+pipenv run pytest
 ```
