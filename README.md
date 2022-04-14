@@ -60,5 +60,6 @@ To run a load test, use `locust` (parameters in [locust.conf](./locust.conf])) :
 ❗ You must run the app before trying to use Locust
 
 ```sh
+# Will run for 60s
 pipenv run locust
 ```
