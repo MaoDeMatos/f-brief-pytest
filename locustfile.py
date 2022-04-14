@@ -12,7 +12,7 @@ class User(HttpUser):
 
     # /other
 
-    @task
+    @task(1)
     def page_other(self):
         self.client.get("other")
         number = int(random() * 1000)
@@ -20,8 +20,7 @@ class User(HttpUser):
 
     # /exp
 
-    @task
+    @task(2)
     def page_exp(self):
-        # self.client.get("exp")
         number = int(random() * 1000)
         self.client.get(f"/exp?value={number}", name="/exp")
