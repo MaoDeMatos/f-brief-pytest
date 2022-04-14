@@ -3,9 +3,10 @@ import pytest
 from app import app
 
 # Returns the app Flask object
-@pytest.fixture
+@pytest.fixture(scope="session")
 def client():
-    return app.test_client()
+    app.config.update({"TESTING": True})
+    yield app.test_client()
 
 
 @pytest.fixture
@@ -18,5 +19,4 @@ def mock_cats():
             {"id": 4, "name": "QSDljfsq"},
         ]
     }
-
     return json.dumps(cats)

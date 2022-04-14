@@ -85,7 +85,6 @@ def test_get_cats_endpoint(client: Flask.test_client):
 @pytest.mark.jsonContent
 @pytest.mark.expectSuccess
 @pytest.mark.mockData
-def test_get_cats_endpoint_mock(mock_cats: str, mocker: mocker):
+def test_get_cats_endpoint_mock(client: Flask, mock_cats: str, mocker: mocker):
     mocker.patch("test_content.get_route_response", return_value=mock_cats)
-
-    assert mock_cats == get_route_response()
+    assert mock_cats == get_route_response(client, "/cats")
