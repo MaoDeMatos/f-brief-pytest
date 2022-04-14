@@ -1,6 +1,8 @@
 import json
+from flask import Flask
 import pytest
 from app import app
+
 
 # Returns the app Flask object
 @pytest.fixture(scope="session")
@@ -20,3 +22,10 @@ def mock_cats():
         ]
     }
     return json.dumps(cats)
+
+
+@pytest.fixture
+def route_response_getter(client: Flask.test_client):
+    def _func(url):
+        return client.get(url)
+    return _func
