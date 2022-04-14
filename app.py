@@ -11,11 +11,19 @@ def hello_world():
 
 @app.route("/other")
 def hello_other():
-    page = request.args.get("page", default = 1, type = int)
+    page = request.args.get("page", default=1, type=int)
     return f"<p>Hello, Other!</p><p>Page : {page}</p>"
 
+
+# Route for Mock test
 # Return a JSON object
 @app.route("/cats")
 def api_cats():
-    cats = { "catsList": [{"id": 1, "name":"Nox"},{"id": 2, "name":"Zippo"},{"id": 3, "name":"Pixie"},] }
-    return json.dumps(cats, separators=(',', ':'))
+    cats = {
+        "catsList": [
+            {"id": 1, "name": "Nox"},
+            {"id": 2, "name": "Leia"},
+            {"id": 3, "name": "Pixie"},
+        ]
+    }
+    return json.dumps(cats, separators=(",", ":"))

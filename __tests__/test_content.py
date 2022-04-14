@@ -4,10 +4,14 @@ from flask import Flask
 from pytest_mock import mocker
 
 
+def get_route_response(client: Flask.test_client, url: str):
+    return client.get(url)
+
+
 @pytest.mark.htmlContent
 @pytest.mark.expectSuccess
 def test_get_homepage(client: Flask.test_client):
-    response = client.get("/")
+    response = get_route_response(client, "/")
     assert b"Hello, World" in response.data
 
 
@@ -15,14 +19,14 @@ def test_get_homepage(client: Flask.test_client):
 # I exported it here
 def http_test_to_other(client: Flask.test_client, arg):
     arg = str(arg)
-    response = client.get("/other?page=" + arg)
+    response = get_route_response(client, "/other?page=" + arg)
     expected = "Page : " + arg
     return expected.encode() in response.data
 
 
 @pytest.mark.htmlContent
 @pytest.mark.expectSuccess
-@pytest.mark.parametrize("page_num", [22, 747])
+@pytest.mark.parametrize("page_num", [22, 747, -9])
 def test_get_other_page(client: Flask.test_client, page_num: int):
     assert http_test_to_other(client, page_num)
 
@@ -37,20 +41,17 @@ def test_get_other_page_bad_arg_type(client: Flask.test_client, page_num: int):
 @pytest.mark.jsonContent
 @pytest.mark.expectSuccess
 def test_get_cats_endpoint(client: Flask.test_client):
-    res = client.get('/cats')
+    res = get_route_response(client, "/cats")
     json_data = json.loads(res.get_data(as_text=True))
     assert res.status_code == 200
-    assert "catsList" in json_data
+    assert json_data.get("catsList")
 
 
-@pytest.mark.skip(reason="Not fully implemented yet")
+# @pytest.mark.skip(reason="Not fully implemented yet")
 @pytest.mark.jsonContent
 @pytest.mark.expectSuccess
 @pytest.mark.mockData
-def test_get_cats_endpoint_mock(mock_cats, mocker: mocker):
-    def get_mock_data():
-        return mock_cats
+def test_get_cats_endpoint_mock(mock_cats: str, mocker: mocker):
+    mocker.patch("test_content.get_route_response", return_value=mock_cats)
 
-    mocker.patch("/cats", get_mock_data)
-
-    assert True
+    assert mock_cats == get_route_response()
