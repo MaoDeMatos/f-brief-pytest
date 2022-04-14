@@ -10,8 +10,8 @@ test = "pytest --html=__tests__/reports/pytest_report.html --self-contained-html
 flask = "*"
 pytest = "*"
 pytest-html = "*"
-locust = "*"
 pytest-mock = "*"
+locust = "*"
 
 [dev-packages]
 
