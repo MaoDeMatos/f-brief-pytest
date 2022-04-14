@@ -25,7 +25,7 @@ def mock_cats():
 
 
 @pytest.fixture
-def route_response_getter(client: Flask.test_client):
+def flask_response(client: Flask.test_client):
     def _func(url):
         return client.get(url)
     return _func

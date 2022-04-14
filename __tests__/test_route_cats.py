@@ -8,15 +8,15 @@ from pytest_mock import mocker
 
 @pytest.mark.jsonContent
 @pytest.mark.expectSuccess
-def test_get_cats_endpoint(route_response_getter):
-    res = route_response_getter("/cats")
+def test_get_cats_endpoint(flask_response):
+    res = flask_response("/cats")
     json_data = json.loads(res.get_data(as_text=True))
     assert res.status_code == 200
     assert json_data.get("catsList")
 
 
-def get_cats_for_mock_local_function(route_response_getter):
-    return route_response_getter
+def get_cats_for_mock_local_function(flask_response):
+    return flask_response
 
 
 @pytest.mark.skip(reason="Not fully implemented yet")
