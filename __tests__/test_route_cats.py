@@ -3,9 +3,6 @@ import pytest
 from pytest_mock import mocker
 
 
-# pytest.skip(allow_module_level=True)
-
-
 @pytest.mark.jsonContent
 @pytest.mark.expectSuccess
 def test_get_cats_endpoint(flask_response):
@@ -19,7 +16,6 @@ def get_cats_for_mock_local_function(flask_response):
     return flask_response
 
 
-# @pytest.mark.skip(reason="Not fully implemented yet")
 @pytest.mark.jsonContent
 @pytest.mark.expectSuccess
 @pytest.mark.mockData

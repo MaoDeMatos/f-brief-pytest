@@ -1,9 +1,6 @@
 import pytest
 
 
-# pytest.skip(allow_module_level=True)
-
-
 @pytest.mark.htmlContent
 @pytest.mark.expectSuccess
 def test_get_homepage(flask_response):

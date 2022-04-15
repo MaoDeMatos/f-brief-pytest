@@ -4,7 +4,7 @@ import pytest
 from app import app
 
 
-# Returns the app Flask object
+# Returns the app.test_client Flask object
 @pytest.fixture(scope="session")
 def client():
     app.config.update({"TESTING": True})

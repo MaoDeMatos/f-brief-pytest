@@ -1,17 +1,12 @@
 import pytest
 
 
-# pytest.skip(allow_module_level=True)
-
-
 @pytest.mark.htmlContent
 @pytest.mark.expectSuccess
 @pytest.mark.parametrize("value", [22, 747, -9])
 def test_get_exp_page(flask_response, value: int):
-    value = str(value)
-    response = flask_response("/exp?value=" + value)
-    expected = "Exposant 2 de " + value
-    # + str(pow(value, 2))
+    response = flask_response("/exp?value=" + str(value))
+    expected = "Exposant 2 de " + str(value) + " : " + str(pow(value, 2))
     assert expected.encode() in response.data
 
 
